@@ -18,7 +18,7 @@ const Layout = ({ isRough, onComplete }) => {
       type: "box",
       color: "#1e293b",
       iterations: 2,
-      animationDuration: 300,
+      animationDuration: 800,
     };
     const d1 = annotate(document.getElementById("dr-hero-img"), defaultStyles);
     const d2 = annotate(
@@ -57,9 +57,9 @@ const Layout = ({ isRough, onComplete }) => {
       if (onComplete) {
         setTimeout(() => {
           onComplete();
-        }, 1000);
+        }, 3000);
       }
-    }, 2000);
+    }, 4000);
   };
   return (
     <div
@@ -109,7 +109,7 @@ const Layout = ({ isRough, onComplete }) => {
                 }
               )}
             >
-              <p className="font-semibold">👋 Hi,</p>
+              <p className="font-semibold">Hi,</p>
             </div>
             <br />
             <div

@@ -9,12 +9,10 @@ const Layout = ({ isRough, onComplete }) => {
   });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
-    if (isVisible) {
-      setTimeout(() => {
-        animate();
-      }, 2500);
-    }
-  }, [isVisible]);
+    setTimeout(() => {
+      animate();
+    }, 2500);
+  }, []);
   const animate = () => {
     const fs = {
       type: "box",
