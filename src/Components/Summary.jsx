@@ -52,9 +52,11 @@ const Layout = ({ isRough, onComplete }) => {
     setTimeout(() => {
       toggleLayout(true);
       if (onComplete) {
-        onComplete();
+        setTimeout(() => {
+          onComplete();
+        }, 1200);
       }
-    }, 700);
+    }, 500);
   };
   return (
     <div
