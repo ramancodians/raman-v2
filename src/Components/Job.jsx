@@ -23,12 +23,6 @@ const RoughJobDesc = ({ name, delay }) => {
     }
   }, [isVisible]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     animate();
-  //   }, delay);
-  // }, []);
-
   const animate = (show = true) => {
     const fs = {
       type: "box",

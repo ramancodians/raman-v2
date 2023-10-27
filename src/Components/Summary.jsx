@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-hook-inview";
 import { annotate, annotationGroup } from "rough-notation";
 
-const Layout = ({ isRough }) => {
+const Layout = ({ isRough, onComplete }) => {
   const [ref, isVisible] = useInView({
     threshold: 1,
   });
@@ -51,6 +51,9 @@ const Layout = ({ isRough }) => {
     ag.show();
     setTimeout(() => {
       toggleLayout(true);
+      if (onComplete) {
+        onComplete();
+      }
     }, 700);
   };
   return (
@@ -106,9 +109,32 @@ const Layout = ({ isRough }) => {
 };
 
 const Summary = () => {
+  const [isDone, toggleIsDone] = useState(false);
   return (
-    <div>
-      <Layout isRough={true} />
+    <div className="relative">
+      <div
+        className={classNames("transition-all duration-1000", {
+          "opacity-0": isDone,
+        })}
+      >
+        <Layout
+          isRough={true}
+          onComplete={() => {
+            toggleIsDone(true);
+          }}
+        />
+      </div>
+      <div
+        className={classNames(
+          "absolute w-full h-full left-0 top-0 transition-all duration-1000 opacity-0",
+          {
+            "opacity-100": isDone,
+          }
+        )}
+      >
+        <Layout isRough={false} />
+      </div>
+      {/* <Layout isRough={false} /> */}
     </div>
   );
 };

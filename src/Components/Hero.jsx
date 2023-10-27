@@ -4,7 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 import { annotationGroup, annotate } from "rough-notation";
 import Raman from "./../assets/raman-profile.jpg";
 
-const Layout = ({ isRough }) => {
+const Layout = ({ isRough, onComplete }) => {
   const [isDrawDone, toggleDraw] = useState(false);
   useEffect(() => {
     if (isRough) {
@@ -53,6 +53,11 @@ const Layout = ({ isRough }) => {
     ag.show();
     setTimeout(() => {
       toggleDraw(true);
+      if (onComplete) {
+        setTimeout(() => {
+          onComplete();
+        }, 1000);
+      }
     }, 2000);
   };
   return (
@@ -101,25 +106,25 @@ const Layout = ({ isRough }) => {
                 }
               )}
             >
-              <p>Hi,</p>
+              <p className="font-semibold">Hi,</p>
             </div>
             <br />
             <div
               id="dr-hero-text-2"
               className={classNames(
-                "text-4xl inline-flex px-4 transition-all duration-500 mt-6 delay-100",
+                "text-4xl inline-flex px-4 transition-all duration-500 delay-100 mt-4",
                 {
                   "opacity-100": isDrawDone,
-                  "opacity-0": isRough,
+                  "opacity-0 mt-6": isRough,
                 }
               )}
             >
-              <p>{`I'm Raman Choudhary`}</p>
+              <p className="font-semibold">{`I'm Raman Choudhary`}</p>
             </div>
             <p
               id="dr-hero-text-3"
               className={classNames(
-                "text-xl inline-flex px-4 transition-all duration-500 mt-6 delay-300",
+                "text-xl inline-flex px-4 transition-all duration-500 delay-300 mt-4",
                 {
                   "opacity-100": isDrawDone,
                   "opacity-0": isRough,
@@ -135,7 +140,7 @@ const Layout = ({ isRough }) => {
                 className={classNames(
                   "px-4 py-2 text-xl transition-all duration-500 mt-6 font-semibold text-blue-600",
                   {
-                    "opacity-100": isDrawDone,
+                    "opacity-100 mt-2": isDrawDone,
                     "opacity-0": isRough,
                   }
                 )}
@@ -176,9 +181,31 @@ const Layout = ({ isRough }) => {
 };
 
 const Hero = () => {
+  const [isDone, toggleIsDone] = useState(false);
   return (
     <div className="relative">
-      <Layout isRough={true} />
+      <div
+        className={classNames("transition-all duration-1000", {
+          "opacity-0": isDone,
+        })}
+      >
+        <Layout
+          isRough={true}
+          onComplete={() => {
+            toggleIsDone(true);
+          }}
+        />
+      </div>
+      <div
+        className={classNames(
+          "absolute w-full h-full left-0 top-0 transition-all duration-1000 opacity-0",
+          {
+            "opacity-100": isDone,
+          }
+        )}
+      >
+        <Layout isRough={false} />
+      </div>
       {/* <Layout isRough={false} /> */}
     </div>
   );
