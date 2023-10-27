@@ -59,16 +59,14 @@ const RoughJobDesc = ({ name, delay }) => {
   );
 };
 
-const Job = ({ isRough, name, data, delay = 300 }) => {
+const Job = ({ isRough, name, data }) => {
   const [ref, isVisible] = useInView({
     threshold: 1,
   });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
-    if (isVisible) {
-      setTimeout(() => {
-        animate();
-      }, delay);
+    if (isVisible && !isLayoutDone) {
+      animate();
     }
   }, [isVisible]);
 
@@ -144,13 +142,7 @@ const Job = ({ isRough, name, data, delay = 300 }) => {
           >{`${data.start} - ${data.end}`}</p>
         </div>
       </div>
-      <div>
-        {isRough ? (
-          <RoughJobDesc name={name} delay={delay + 1000} />
-        ) : (
-          <>{data.body()}</>
-        )}
-      </div>
+      <div>{isRough ? <RoughJobDesc name={name} /> : <>{data.body()}</>}</div>
     </div>
   );
 };

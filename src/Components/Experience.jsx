@@ -123,7 +123,6 @@ const Layout = ({ isRough }) => {
               name={sec.id}
               key={sec.id}
               data={sec}
-              delay={(i + 1) * 1000 + 1000}
             />
           ))}
         </div>
