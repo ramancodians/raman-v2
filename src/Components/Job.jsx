@@ -1,21 +1,33 @@
 import { useState, useEffect, useMemo } from "react";
 import { annotate, annotationGroup } from "rough-notation";
 import classNames from "classnames";
+import { useInView } from "react-hook-inview";
 
 const RoughJobDesc = ({ name, delay }) => {
+  const [ref, isVisible] = useInView({
+    threshold: 1,
+  });
   const lines = useMemo(() => {
     return Array(5)
       .fill(1)
       .map((x, i) => i);
   }, []);
 
+  console.log({ isVisible });
   useEffect(() => {
-    setTimeout(() => {
-      animate();
-    }, delay);
-  }, []);
+    if (isVisible) {
+      animate(true);
+    } else {
+    }
+  }, [isVisible]);
 
-  const animate = () => {
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     animate();
+  //   }, delay);
+  // }, []);
+
+  const animate = (show = true) => {
     const fs = {
       type: "box",
       iterations: 2,
@@ -26,16 +38,19 @@ const RoughJobDesc = ({ name, delay }) => {
     const ag = annotationGroup(
       Array.from(allLines).map((x) => annotate(x, { ...fs }))
     );
-    ag.show();
+    if (show) {
+      ag.show();
+    } else {
+      ag.hide();
+    }
   };
-  console.log(lines);
   return (
-    <div className="flex flex-col gap-6 w-full">
-      {[1, 2, 3, 4, 5].map((x) => (
+    <div ref={ref} className="flex flex-col gap-6 w-full">
+      {[89, 79, 88, 76, 70, 30].map((x) => (
         <div
           key={x}
           className={`dr-job-${name}-line h-2`}
-          style={{ width: `${Math.floor(Math.random() * 6) + 5}0%` }}
+          style={{ width: `${x}%` }}
         ></div>
       ))}
     </div>
@@ -43,7 +58,6 @@ const RoughJobDesc = ({ name, delay }) => {
 };
 
 const Job = ({ isRough, name, data, delay = 300 }) => {
-  console.log({ delay });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
     if (isRough) {
@@ -81,7 +95,7 @@ const Job = ({ isRough, name, data, delay = 300 }) => {
   };
   return (
     <div className="flex flex-col gap-4 p-4" id={`dr-section-${name}-box`}>
-      <div className="flex justify-between py-6">
+      <div className="flex flex-col md:flex-row justify-between py-6">
         <div className="flex flex-col">
           <h2
             className={classNames(

@@ -16,7 +16,7 @@ const Layout = ({ isRough }) => {
     const defaultStyles = {
       type: "box",
       color: "#1e293b",
-      iterations: 1,
+      iterations: 2,
       animationDuration: 300,
     };
     const d1 = annotate(document.getElementById("dr-hero-img"), defaultStyles);
