@@ -128,7 +128,7 @@ const Layout = ({ isRough }) => {
 
 const Experience = () => {
   return (
-    <div>
+    <div className="p-4 md:p-0">
       <Layout isRough={true} />
     </div>
   );

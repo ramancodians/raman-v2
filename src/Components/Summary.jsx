@@ -49,11 +49,11 @@ const Layout = ({ isRough }) => {
   };
   return (
     <div
-      className={classNames("py-10 ", {
+      className={classNames("py-10", {
         "font-hand": isRough,
       })}
     >
-      <div className="container mx-auto max-w-[900px]">
+      <div className="container mx-auto max-w-[900px] p-4 md:p-0">
         <h2 className="text-2xl font-semibold">
           <span
             id="dr-sm-text"
@@ -102,7 +102,6 @@ const Summary = () => {
   return (
     <div>
       <Layout isRough={true} />
-      <Layout isRough={false} />
     </div>
   );
 };

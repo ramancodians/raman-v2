@@ -63,7 +63,7 @@ const Layout = ({ isRough }) => {
       })}
     >
       <div className="container mx-auto">
-        <div className="flex gap-6 justify-center items-center">
+        <div className="flex gap-6 flex-col md:flex-row p-4 md:p-0 justify-center items-center">
           {isRough ? (
             <div
               className="w-40 h-40 flex justify-center items-center flex-col"
