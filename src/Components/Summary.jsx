@@ -1,14 +1,20 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import { useInView } from "react-hook-inview";
 import { annotate, annotationGroup } from "rough-notation";
 
 const Layout = ({ isRough }) => {
+  const [ref, isVisible] = useInView({
+    threshold: 1,
+  });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      animate();
-    }, 2500);
-  }, []);
+    if (isVisible) {
+      setTimeout(() => {
+        animate();
+      }, 2500);
+    }
+  }, [isVisible]);
   const animate = () => {
     const fs = {
       type: "box",
@@ -49,6 +55,7 @@ const Layout = ({ isRough }) => {
   };
   return (
     <div
+      ref={ref}
       className={classNames("py-10", {
         "font-hand": isRough,
       })}

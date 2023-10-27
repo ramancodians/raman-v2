@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { annotate, annotationGroup } from "rough-notation";
 import Job from "./Job";
+import { useInView } from "react-hook-inview";
 
 const SECTIONSDATA = [
   {
@@ -76,12 +77,16 @@ const SECTIONSDATA = [
 ];
 
 const Layout = ({ isRough }) => {
+  const [ref, isVisible] = useInView({
+    threshold: 0.5,
+  });
   useEffect(() => {
-    if (isRough) {
+    if (isVisible) {
       animate();
     }
-  }, []);
+  }, [isVisible]);
   const animate = () => {
+    console.log("start  exp");
     const fs = {
       iterations: 1,
       color: "#1e293b",
@@ -100,6 +105,7 @@ const Layout = ({ isRough }) => {
   };
   return (
     <div
+      ref={ref}
       className={classNames("py-10", {
         "font-hand": isRough,
       })}

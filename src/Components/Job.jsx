@@ -13,11 +13,13 @@ const RoughJobDesc = ({ name, delay }) => {
       .map((x, i) => i);
   }, []);
 
-  console.log({ isVisible });
   useEffect(() => {
     if (isVisible) {
-      animate(true);
+      setTimeout(() => {
+        animate(true);
+      }, delay);
     } else {
+      animate(false);
     }
   }, [isVisible]);
 
@@ -58,19 +60,22 @@ const RoughJobDesc = ({ name, delay }) => {
 };
 
 const Job = ({ isRough, name, data, delay = 300 }) => {
+  const [ref, isVisible] = useInView({
+    threshold: 1,
+  });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
-    if (isRough) {
+    if (isVisible) {
       setTimeout(() => {
         animate();
       }, delay);
     }
-  }, []);
+  }, [isVisible]);
 
   const animate = () => {
     const fs = {
       type: "box",
-      iterations: 1,
+      iterations: 2,
       color: "#1e293b",
       animationDuration: 400,
     };
@@ -94,7 +99,11 @@ const Job = ({ isRough, name, data, delay = 300 }) => {
     }, 2000);
   };
   return (
-    <div className="flex flex-col gap-4 p-4" id={`dr-section-${name}-box`}>
+    <div
+      ref={ref}
+      className="flex flex-col gap-4 p-4"
+      id={`dr-section-${name}-box`}
+    >
       <div className="flex flex-col md:flex-row justify-between py-6">
         <div className="flex flex-col">
           <h2
@@ -137,7 +146,7 @@ const Job = ({ isRough, name, data, delay = 300 }) => {
       </div>
       <div>
         {isRough ? (
-          <RoughJobDesc name={name} delay={delay} />
+          <RoughJobDesc name={name} delay={delay + 1000} />
         ) : (
           <>{data.body()}</>
         )}
