@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { annotationGroup, annotate } from "rough-notation";
 import Raman from "./../assets/raman-profile.jpg";
+import CommitLogs from "./GitLogs";
 
 const Layout = ({ isRough, onComplete }) => {
   const [isDrawDone, toggleDraw] = useState(false);
@@ -62,11 +63,12 @@ const Layout = ({ isRough, onComplete }) => {
   };
   return (
     <div
-      className={classNames("py-40", {
+      className={classNames("py-20 md:py-40", {
         "bg111-yellow-200": isRough,
         "bg111-blue-200": !isRough,
       })}
     >
+      <CommitLogs />
       <div className="container mx-auto">
         <div className="flex gap-6 flex-col md:flex-row p-4 md:p-0 justify-center items-center">
           {isRough ? (
@@ -94,6 +96,7 @@ const Layout = ({ isRough, onComplete }) => {
           <div
             className={classNames("max-w-xl", {
               "font-hand": isRough,
+              "font-main": !isRough,
             })}
           >
             <div
@@ -106,7 +109,7 @@ const Layout = ({ isRough, onComplete }) => {
                 }
               )}
             >
-              <p className="font-semibold">Hi,</p>
+              <p className="font-semibold">👋 Hi,</p>
             </div>
             <br />
             <div
