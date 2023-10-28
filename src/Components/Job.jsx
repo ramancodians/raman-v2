@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { annotate, annotationGroup } from "rough-notation";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
+import { getNumberOfLines, mockLines } from "../utils";
 
 const RoughJobDesc = ({ name, delay, isLayoutDone, noOfLines }) => {
   const [ref, isVisible] = useInView({
@@ -9,9 +10,9 @@ const RoughJobDesc = ({ name, delay, isLayoutDone, noOfLines }) => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
+    if (noOfLines) {
       animate(true);
-    }, delay || 0);
+    }
   }, [isVisible, isLayoutDone]);
 
   const animate = (show = true) => {
@@ -33,12 +34,12 @@ const RoughJobDesc = ({ name, delay, isLayoutDone, noOfLines }) => {
   };
   return (
     <div ref={ref} className="flex flex-col gap-6 w-full">
-      {[89, 79, 88, 73, 82, 75, 70]
-        .slice(0, noOfLines - 2)
+      {mockLines
+        .slice(0, noOfLines - 3)
         .concat([40])
-        .map((x) => (
+        .map((x, i) => (
           <div
-            key={x}
+            key={i}
             className={`dr-job-${name}-line h-2`}
             style={{ width: `${x}%` }}
           ></div>
@@ -94,11 +95,7 @@ const Layout = ({ isRough, name, data, onComplete }) => {
 
   useEffect(() => {
     if (jobDescRef.current) {
-      const style = window.getComputedStyle(jobDescRef.current);
-      const lineHeight = parseFloat(style.lineHeight);
-      const elementHeight = jobDescRef.current.clientHeight;
-      const numberOfLines = Math.floor(elementHeight / lineHeight);
-      setNoOfLines(numberOfLines);
+      setNoOfLines(getNumberOfLines(jobDescRef.current));
     }
   }, [jobDescRef.current]);
   return (

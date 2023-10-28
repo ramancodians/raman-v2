@@ -1,9 +1,11 @@
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-hook-inview";
 import { annotate, annotationGroup } from "rough-notation";
+import { getNumberOfLines, mockLines } from "../utils";
 
 const Layout = ({ isRough, onComplete }) => {
+  const summryRef = useRef();
   const [ref, isVisible] = useInView({
     threshold: 1,
   });
@@ -13,6 +15,8 @@ const Layout = ({ isRough, onComplete }) => {
       animate();
     }
   }, [isVisible]);
+
+  const noOfLines = getNumberOfLines(summryRef.current);
 
   const animate = () => {
     const fs = {
@@ -57,6 +61,8 @@ const Layout = ({ isRough, onComplete }) => {
       }
     }, 500);
   };
+
+  console.log(noOfLines);
   return (
     <div
       ref={ref}
@@ -79,14 +85,23 @@ const Layout = ({ isRough, onComplete }) => {
             Summary
           </span>
         </h2>
-        {isRough ? (
+        {isRough && noOfLines > 0 && (
           <div className="flex flex-col gap-6 mt-6">
-            <div id="dr-sm-text-l-1" className="h-2 w-[90%]"></div>
-            <div id="dr-sm-text-l-2" className="h-2 w-[80%]"></div>
-            <div id="dr-sm-text-l-3" className="h-2 w-[86%]"></div>
-            <div id="dr-sm-text-l-4" className="h-2 w-[40%]"></div>
+            {mockLines
+              .slice(0, noOfLines - 1)
+              .concat([40])
+              .map((x, i) => (
+                <div
+                  key={i}
+                  className={classNames(`h-2 bg-slate-500`)}
+                  style={{ width: `${x}%` }}
+                >
+                  11aaa
+                </div>
+              ))}
           </div>
-        ) : (
+        )}
+        {!isRough && (
           <p
             className={classNames(
               "mt-6 opacity-0 transition-all duration-300 text-lg",
@@ -96,6 +111,7 @@ const Layout = ({ isRough, onComplete }) => {
               }
             )}
             id="dr-sm-text-2"
+            ref={summryRef}
           >
             I specialize in rendering JSON data in an aesthetically pleasing
             manner on various platforms and frameworks, with a preference for
