@@ -13,18 +13,28 @@ const SECTIONSDATA = [
     title: "Lead Frontend Engineer",
     body: () => (
       <div>
-        <p>
-          Development critical user-facing modules enabling users to efficiently
-          manage dynamic workflows. Took full responsibility of developing
-          featurerich UI components using the MUI Library in Storybook,
-          including dynamic tables that facilitated data validations and
-          advanced error handling.
-        </p>
-        <p>
-          Collaborated with a diverse team of over 35 engineers, fostering
-          effective teamwork and contributing to numerous process improvements
-          and CI/CD pipelines.
-        </p>
+        <ul className="list-disc">
+          <li>
+            Developed critical user-facing modules to enhance user management of
+            dynamic workflows with React DnD in Typescript.
+          </li>
+          <li>
+            Took full ownership of creating custom UI components with MUI
+            Library in Storybook.
+          </li>
+          <li>
+            Designed Dynamic tables to data validation and enhance error
+            handling capabilities.
+          </li>
+          <li>
+            Collaborated closely with a large team of 35+ engineers, promoting
+            efficient teamwork.
+          </li>
+          <li>
+            Contributed significantly to process enhancements and CI/CD pipeline
+            improvements using Github Actions.
+          </li>
+        </ul>
       </div>
     ),
   },
@@ -36,27 +46,46 @@ const SECTIONSDATA = [
     title: "Lead Frontend Engineer",
     body: () => (
       <div>
-        <p>
-          Development critical user-facing modules enabling users to efficiently
-          manage dynamic workflows. Took full responsibility of developing
-          featurerich UI components using the MUI Library in Storybook,
-          including dynamic tables that facilitated data validations and
-          advanced error handling.
-        </p>
-        <p>
-          Collaborated with a diverse team of over 35 engineers, fostering
-          effective teamwork and contributing to numerous process improvements
-          and CI/CD pipelines.
-        </p>
+        <ul className="list-disc">
+          <li>Led a team of 3 frontend engineers at Radius.</li>
+          <li>
+            Owned the end-to-end release and deployment cycle for the web
+            platform.
+          </li>
+          <li>
+            Led the multiple core modules at Radius. Some of the highlights are
+            performance drive, agent-to-agent video conference, Deployment Cycle
+            with Zero down time and tests.
+          </li>
+          <li>
+            Architected the frontend stack from Angular codebase to a custom
+            Server Side Rendered Application with React and Express, integrating
+            four codebases for enhanced code reusability and development
+            efficiency.
+          </li>
+          <li>
+            Implemented Unit Testing and Continuous Integration practices using
+            Jest.
+          </li>
+          <li>
+            Achieved a significant reduction in script/resource size from 6MB to
+            approximately 800KB through techniques such as code splitting, Lazy
+            Loading, and service workers.
+          </li>
+          <li>
+            Collaborated closely with leadership to enhance web platform
+            conversions by utilizing analytics and data-driven decision making.
+          </li>
+        </ul>
       </div>
     ),
   },
   {
-    id: "radius-agent-1",
-    company: "Radius Agent",
-    start: "Sep 2018",
-    end: "May 2022",
-    title: "Lead Frontend Engineer",
+    id: "goomo",
+    company: "Goomo",
+    start: "May 2017",
+    end: "Sep 2018",
+    title: "Frontend Engineer (SD2)",
     body: () => (
       <div>
         <p>
@@ -104,12 +133,7 @@ const Layout = ({ isRough }) => {
     ag.show();
   };
   return (
-    <div
-      ref={ref}
-      className={classNames("py-10", {
-        "font-hand": isRough,
-      })}
-    >
+    <div ref={ref}>
       <div className="container mx-auto max-w-[900px]">
         <div className="text-2xl font-semibold">
           <span id="dr-ex-text">Experience</span>

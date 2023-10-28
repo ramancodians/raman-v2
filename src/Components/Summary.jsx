@@ -9,10 +9,11 @@ const Layout = ({ isRough, onComplete }) => {
   });
   const [isLayoutDone, toggleLayout] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
+    if (isVisible && !isLayoutDone) {
       animate();
-    }, 2500);
-  }, []);
+    }
+  }, [isVisible]);
+
   const animate = () => {
     const fs = {
       type: "box",
@@ -61,6 +62,7 @@ const Layout = ({ isRough, onComplete }) => {
       ref={ref}
       className={classNames("py-10", {
         "font-hand": isRough,
+        "font-main": !isRough,
       })}
     >
       <div className="container mx-auto max-w-[900px] p-4 md:p-0">
@@ -87,7 +89,7 @@ const Layout = ({ isRough, onComplete }) => {
         ) : (
           <p
             className={classNames(
-              "mt-6 opacity-0 transition-all duration-300",
+              "mt-6 opacity-0 transition-all duration-300 text-lg",
               {
                 "font-semibold": isRough,
                 "opacity-100": isLayoutDone,
@@ -120,6 +122,7 @@ const Summary = () => {
         <Layout
           isRough={true}
           onComplete={() => {
+            console.log("Summary Done");
             toggleIsDone(true);
           }}
         />

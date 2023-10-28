@@ -18,7 +18,7 @@ const Layout = ({ isRough, onComplete }) => {
       type: "box",
       color: "#1e293b",
       iterations: 2,
-      animationDuration: 800,
+      animationDuration: 400,
     };
     const d1 = annotate(document.getElementById("dr-hero-img"), defaultStyles);
     const d2 = annotate(
@@ -45,12 +45,8 @@ const Layout = ({ isRough, onComplete }) => {
       document.getElementById("dr-hero-cta-3"),
       defaultStyles
     );
-    const cta4 = annotate(document.getElementById("dr-hero-cta-3"), {
-      ...defaultStyles,
-      type: "circle",
-      color: "#EF4444",
-    });
-    const ag = annotationGroup([d1, d2, d3, d4, cta1, cta2, cta3, cta4]);
+
+    const ag = annotationGroup([d1, d2, d3, d4, cta1, cta2, cta3]);
     ag.show();
     setTimeout(() => {
       toggleDraw(true);
@@ -63,7 +59,7 @@ const Layout = ({ isRough, onComplete }) => {
   };
   return (
     <div
-      className={classNames("py-20 md:py-40", {
+      className={classNames("py-10 md:pt-40", {
         "bg111-yellow-200": isRough,
         "bg111-blue-200": !isRough,
       })}
@@ -138,13 +134,13 @@ const Layout = ({ isRough, onComplete }) => {
               Quibusdam optio ad corporis assumenda ipsa iste molestiae porro!
               Cumque, culpa commodi!
             </p>
-            <div className="flex gap-6">
+            <div className="flex justify-between md:justify-start md:gap-4">
               <button
                 className={classNames(
-                  "px-4 py-2 text-xl transition-all duration-500 mt-6 font-semibold text-blue-600",
+                  "text-sm  border-2 border-blue-500 px-4 py-2 transition-all duration-500 mt-6 font-semibold text-blue-600",
                   {
                     "opacity-100 mt-2": isDrawDone,
-                    "opacity-0": isRough,
+                    "opacity-50": isRough,
                   }
                 )}
                 id="dr-hero-cta-1"
@@ -153,7 +149,7 @@ const Layout = ({ isRough, onComplete }) => {
               </button>
               <button
                 className={classNames(
-                  "px-4 py-2 text-xl transition-all duration-500 mt-6 font-semibold text-blue-600",
+                  "text-sm border-2 border-blue-500 px-4 py-2 transition-all duration-500 mt-6 font-semibold text-blue-600",
                   {
                     "opacity-100": isDrawDone,
                     "opacity-0": isRough,
@@ -165,7 +161,7 @@ const Layout = ({ isRough, onComplete }) => {
               </button>
               <button
                 className={classNames(
-                  "px-4 py-2 text-xl transition-all duration-500 mt-6 font-semibold text-blue-600",
+                  "text-sm  border-2 border-blue-500 px-4 py-2 transition-all duration-500 mt-6 font-semibold text-blue-600",
                   {
                     "opacity-100": isDrawDone,
                     "opacity-0": isRough,
@@ -188,7 +184,7 @@ const Hero = () => {
   return (
     <div className="relative">
       <div
-        className={classNames("transition-all duration-1000", {
+        className={classNames("transition-all duration-1000 clip-test", {
           "opacity-0": isDone,
         })}
       >
