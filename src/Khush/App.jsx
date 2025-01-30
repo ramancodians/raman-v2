@@ -34,7 +34,7 @@ const Company = ({
           </h4>
         </div>
       </div>
-      <div className="border-t borde-2"></div>
+      <div className="border-t borde-2 mt-2 mb-4"></div>
       <ul className="list-disc px-4 flex flex-col gap-4 mt-4">
         {list.map((str, idx) => (
           <li key={idx} className="">
@@ -78,10 +78,14 @@ const App = () => {
         <h2 className="text-2xl font-semibold">
           Experience
         </h2>
-        <Company />
-        <Company
-          companyName=""
-        />
+        <div className="flex flex-col gap-16"> 
+          <Company />
+          <Company
+            companyName="Mercedes Benz Research and Development India"
+            role="Senior Software Engineer"
+            duration="Feb 2021 - Aug 2022"
+          />
+        </div>
       </div>
     </div>
   )
