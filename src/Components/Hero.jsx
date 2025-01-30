@@ -118,7 +118,7 @@ const Layout = ({ isRough, onComplete }) => {
                 }
               )}
             >
-              <p className="font-semibold">{`I'm Raman Choudhary`}</p>
+              <p className="font-semibold">{`I'm Khushbu Tameshwari`}</p>
             </div>
             <p
               id="dr-hero-text-3"
@@ -130,9 +130,7 @@ const Layout = ({ isRough, onComplete }) => {
                 }
               )}
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Quibusdam optio ad corporis assumenda ipsa iste molestiae porro!
-              Cumque, culpa commodi!
+              Full Stack Engineer with over 8 years of experience. Work
             </p>
             <div className="flex justify-between md:justify-start md:gap-4">
               <button

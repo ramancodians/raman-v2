@@ -1,4 +1,4 @@
-import "./index.css";
+
 import Hero from "./Components/Hero";
 import Summary from "./Components/Summary";
 import Experience from "./Components/Experience";
