@@ -91,7 +91,7 @@ const App = () => {
           <TbArrowDown className="text-3xl animate-bounce text-slate-400" />
         </div>
       </div>
-      <div className="container mx-auto min-h-screen flex flex-col px-10">
+      <div className="container mx-auto min-h-screen flex flex-col px-6">
         <h2 className="text-2xl font-semibold">Experience</h2>
         <div className="flex flex-col gap-16 mb-40">
           <Company />
@@ -143,7 +143,7 @@ const App = () => {
       </div>
 
       {/* Education */}
-      <div className="container mx-auto  flex flex-col px-10 my-20">
+      <div className="container mx-auto  flex flex-col px-4 my-20">
         <h2 className="text-2xl font-semibold my-4">Education</h2>
 
         <div>
@@ -157,7 +157,7 @@ const App = () => {
       </div>
 
       {/* sKILLS */}
-      <div className="container mx-auto flex flex-col px-10 my-10">
+      <div className="container mx-auto flex flex-col px-4 my-10">
         <h2 className="text-2xl font-semibold my-4">Technical Skills</h2>
         <div>
           <h3 className="text-lg font-semibold">Bachelor of Engineering</h3>
