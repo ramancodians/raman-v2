@@ -45,8 +45,8 @@ const Company = ({
         </div>
         <div className="flex-1">
           <p className="font-semibold text-lg">{companyName}</p>
+          <h4 className="relative -top-1">{role}</h4>
           <h5 className="text-sm text-slate-400 relative -top-1">{duration}</h5>
-          <h4 className="relative -top-2">{role}</h4>
         </div>
       </div>
       <div className="border-t borde-2 mt-2 mb-4"></div>
