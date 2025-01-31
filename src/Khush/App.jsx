@@ -66,6 +66,7 @@ const Company = ({
   companyName = "American Express",
   duration = "Aug 2022 - Present",
   role = "Senior Engineer I",
+  className = "bg-gradient-to-t from-white  to-sky-100 rounded-md p-4",
   list = [
     "Collaborate with the team to develop a user-friendly no-code tool to help the marketing team to make quick changes.",
     "Developed and enhanced a customer-facing application enabling seamless American Express card applications.",
@@ -74,9 +75,9 @@ const Company = ({
   ],
 }) => {
   return (
-    <div>
+    <div className={className}>
       {/* Header */}
-      <div className="flex gap-4 mt-4 items-center ">
+      <div className="flex gap-4 mt-4 items-center">
         <div className="w-12">
           <img src={image} alt={imageAlt} className=" rounded-md" />
         </div>
@@ -101,21 +102,21 @@ const Company = ({
 const App = () => {
   return (
     <div>
-      <div className="container mx-auto min-h-screen print:min-h-fit md:min-h-fit md:pt-20 flex flex-col justify-center items-center md:justify-start md:items-start">
+      <div className="container mx-auto min-h-screen md:bg-white print:min-h-fit md:min-h-fit md:pt-20 flex flex-col justify-center items-center md:justify-start md:items-start bg-gradient-to-b from-sky-300 to-white md:from-white">
         <div className="flex flex-col justify-center items-center  md:flex-row">
           <div>
             <img
               src={MyImage}
               alt="Khushbu Tameshwari"
-              className="rounded-full max-w-[200px] md:w-36"
+              className="rounded-full max-w-[200px] md:w-36 border-8 border-sky-300 drop-shadow-xl"
             />
           </div>
           <div className="px-10">
-            <h1 className="text-2xl font-semibold mt-4">
-              Hi,
-              <br />I am Khushbu Tameshwari
+            <h1 className="text-2xl font-semibold mt-4">Hi,</h1>
+            <h1 className="text-2xl font-semibold mt-1">
+              I am Khushbu Tameshwari
             </h1>
-            <h2 className="text-lg mt-2 max-w-lg">
+            <h2 className="text-lg mt-4 max-w-lg">
               I am a Seniour Full Stack Engineer, with more than 8 years of
               experience in building web applications at scale.
             </h2>
@@ -131,7 +132,9 @@ const App = () => {
 
       {/* Contact Information */}
       <div className="container mx-auto  flex flex-col px-4 my-20">
-        <h2 className="text-2xl font-semibold my-4">Contact Information</h2>
+        <h2 className="text-2xl font-semibold my-4 text-sky-600">
+          Contact Information
+        </h2>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
           <div className="flex items-center">
             <TbPhone className="text-2xl text-slate-400" />
@@ -170,7 +173,7 @@ const App = () => {
       </div>
 
       <div className="container mx-auto  flex flex-col px-6">
-        <h2 className="text-2xl font-semibold">Experience</h2>
+        <h2 className="text-2xl font-semibold text-sky-600 mb-4">Experience</h2>
         <div className="flex flex-col gap-16 mb-10">
           <Company />
           <Company
@@ -222,9 +225,8 @@ const App = () => {
 
       {/* Education */}
       <div className="container mx-auto  flex flex-col px-4">
-        <h2 className="text-2xl font-semibold my-4">Education</h2>
-
-        <div>
+        <h2 className="text-2xl font-semibold my-4 text-sky-600">Education</h2>
+        <div className="bg-gradient-to-t from-white  to-sky-50 rounded-md p-4">
           <h3 className="text-lg font-semibold">Bachelor of Engineering</h3>
           <h4 className="font-semibold">Computer Science and Engineering</h4>
           <h4 className="mt-2">
@@ -236,8 +238,10 @@ const App = () => {
 
       {/* SKILLS */}
       <div className="container mx-auto flex flex-col px-4 my-10">
-        <h2 className="text-2xl font-semibold my-4">Technical Skills</h2>
-        <div className="grid grid-cols-2 gap-2  md:grid md:grid-cols-3 md:gap-4">
+        <h2 className="text-2xl font-semibold my-4 text-sky-600">
+          Technical Skills
+        </h2>
+        <div className="grid grid-cols-2 gap-2 md:grid md:grid-cols-3 md:gap-4 bg-gradient-to-t from-white  to-sky-50 rounded-md p-4">
           {technicalSkills.map((sec, idx) => (
             <div key={idx}>
               <p className="font-semibold mb-1">{sec.category}</p>
