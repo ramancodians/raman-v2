@@ -89,7 +89,7 @@ const Company = ({
       <div className="border-t borde-2 mt-2 mb-4"></div>
       <ul className="list-disc px-4 flex flex-col gap-4 mt-4">
         {list.map((str, idx) => (
-          <li key={idx} className="">
+          <li key={idx} className="max-w-2xl">
             {str}
           </li>
         ))}
@@ -132,35 +132,33 @@ const App = () => {
       {/* Contact Information */}
       <div className="container mx-auto  flex flex-col px-4 my-20">
         <h2 className="text-2xl font-semibold my-4">Contact Information</h2>
-        <div className="flex gap-2 justify-start">
-          <div className="flex items-center w-">
-            <TbPhone className="text-2xl text-slate-400 w-16" />
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+          <div className="flex items-center">
+            <TbPhone className="text-2xl text-slate-400" />
             <a
               href="tel:+918904303577"
-              className="text-lg underline print:no-underline"
+              className="underline print:no-underline"
             >
               +91 890430-3577
             </a>
           </div>
           <div className="flex items-center w-">
-            <TbMail className="text-2xl text-slate-400 w-16" />
+            <TbMail className="text-2xl text-slate-400 hidden md:inline-block" />
             <a
               href="mail:khushbutanu@gmail.com"
-              className="text-lg underline print:no-underline"
+              className="underline print:no-underline"
             >
               khushbutanu@gmail.com
             </a>
           </div>
           <div className="flex items-center w-">
-            <TbMapPin className="text-2xl text-slate-400 w-16" />
-            <p className="text-lg underline print:no-underline">
-              Bangalore, India
-            </p>
+            <TbMapPin className="text-2xl text-slate-400" />
+            <p className="underline print:no-underline">Bangalore, India</p>
           </div>
           <div className="flex items-center w-">
-            <TbBrandLinkedin className="text-2xl text-slate-400 w-16" />
+            <TbBrandLinkedin className="text-2xl text-slate-400" />
             <a
-              className="text-lg underline print:no-underline"
+              className="underline print:no-underline"
               href="https://www.linkedin.com/in/khushbu-tameshwari-b23176a1"
               target="_blank"
               rel="noreferrer"
@@ -171,9 +169,9 @@ const App = () => {
         </div>
       </div>
 
-      <div className="container mx-auto min-h-screen flex flex-col px-6">
+      <div className="container mx-auto  flex flex-col px-6">
         <h2 className="text-2xl font-semibold">Experience</h2>
-        <div className="flex flex-col gap-16 mb-40">
+        <div className="flex flex-col gap-16 mb-10">
           <Company />
           <Company
             companyName="Mercedes Benz Research and Development India"
@@ -223,7 +221,7 @@ const App = () => {
       </div>
 
       {/* Education */}
-      <div className="container mx-auto  flex flex-col px-4 my-20">
+      <div className="container mx-auto  flex flex-col px-4">
         <h2 className="text-2xl font-semibold my-4">Education</h2>
 
         <div>
@@ -239,7 +237,7 @@ const App = () => {
       {/* SKILLS */}
       <div className="container mx-auto flex flex-col px-4 my-10">
         <h2 className="text-2xl font-semibold my-4">Technical Skills</h2>
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-4 flex-col md:grid md:grid-cols-3 md:gap-4">
           {technicalSkills.map((sec, idx) => (
             <div key={idx}>
               <p className="font-semibold mb-1">{sec.category}</p>
