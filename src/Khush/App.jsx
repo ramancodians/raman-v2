@@ -56,7 +56,7 @@ const technicalSkills = [
 
   {
     category: "Offline-first & PWA",
-    skills: ["Progressive Web Apps (PWA)", "Service Workers"],
+    skills: ["PWA", "Service Workers"],
   },
 ];
 
@@ -237,7 +237,7 @@ const App = () => {
       {/* SKILLS */}
       <div className="container mx-auto flex flex-col px-4 my-10">
         <h2 className="text-2xl font-semibold my-4">Technical Skills</h2>
-        <div className="flex gap-4 flex-col md:grid md:grid-cols-3 md:gap-4">
+        <div className="grid grid-cols-2 gap-2  md:grid md:grid-cols-3 md:gap-4">
           {technicalSkills.map((sec, idx) => (
             <div key={idx}>
               <p className="font-semibold mb-1">{sec.category}</p>
