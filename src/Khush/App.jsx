@@ -1,4 +1,11 @@
-import { TbArrowDown, TbMail, TbPhone } from "react-icons/tb";
+import {
+  TbArrowDown,
+  TbBrandLinkedin,
+  TbMail,
+  TbMapPin,
+  TbPhone,
+  TbPin,
+} from "react-icons/tb";
 import MyImage from "./../assets/khushbu-tamershwari.png";
 import Amex from "./../assets/amex.svg";
 import Mercedes from "./../assets/mercedes-benz.png";
@@ -60,7 +67,7 @@ const Company = ({
   duration = "Aug 2022 - Present",
   role = "Senior Engineer I",
   list = [
-    "Led a team of 10 members, driving collaboration and project success in a fast-paced environment.",
+    "Collaborate with the team to develop a user-friendly no-code tool to help the marketing team to make quick changes.",
     "Developed and enhanced a customer-facing application enabling seamless American Express card applications.",
     "Worked on the UK market, the highest revenue-generating international segment, ensuring optimal performance and user experience.",
     "Contributed to significant revenue growth by implementing strategic improvements and optimizing application workflows.",
@@ -94,13 +101,13 @@ const Company = ({
 const App = () => {
   return (
     <div>
-      <div className="container mx-auto min-h-screen flex flex-col justify-center items-center">
+      <div className="container mx-auto min-h-screen print:min-h-fit md:min-h-fit md:pt-20 flex flex-col justify-center items-center md:justify-start md:items-start">
         <div className="flex flex-col justify-center items-center  md:flex-row">
           <div>
             <img
               src={MyImage}
               alt="Khushbu Tameshwari"
-              className="rounded-full max-w-[200px]"
+              className="rounded-full max-w-[200px] md:w-36"
             />
           </div>
           <div className="px-10">
@@ -114,7 +121,7 @@ const App = () => {
             </h2>
           </div>
         </div>
-        <div className="mt-20 flex flex-col justify-center items-center">
+        <div className="mt-20 flex flex-col justify-center items-center print:hidden md:hidden">
           <span className="mb-4 text-slate-400">
             Scroll down to see my work
           </span>
@@ -125,7 +132,7 @@ const App = () => {
       {/* Contact Information */}
       <div className="container mx-auto  flex flex-col px-4 my-20">
         <h2 className="text-2xl font-semibold my-4">Contact Information</h2>
-        <div>
+        <div className="flex gap-2 justify-start">
           <div className="flex items-center w-">
             <TbPhone className="text-2xl text-slate-400 w-16" />
             <a
@@ -138,19 +145,27 @@ const App = () => {
           <div className="flex items-center w-">
             <TbMail className="text-2xl text-slate-400 w-16" />
             <a
-              href="tel:+918904303577"
+              href="mail:khushbutanu@gmail.com"
               className="text-lg underline print:no-underline"
             >
-              +91 890430-3577
+              khushbutanu@gmail.com
             </a>
           </div>
           <div className="flex items-center w-">
-            <TbPhone className="text-2xl text-slate-400 w-16" />
+            <TbMapPin className="text-2xl text-slate-400 w-16" />
+            <p className="text-lg underline print:no-underline">
+              Bangalore, India
+            </p>
+          </div>
+          <div className="flex items-center w-">
+            <TbBrandLinkedin className="text-2xl text-slate-400 w-16" />
             <a
-              href="tel:+918904303577"
               className="text-lg underline print:no-underline"
+              href="https://www.linkedin.com/in/khushbu-tameshwari-b23176a1"
+              target="_blank"
+              rel="noreferrer"
             >
-              +91 890430-3577
+              View Profile
             </a>
           </div>
         </div>
