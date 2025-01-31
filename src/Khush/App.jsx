@@ -1,4 +1,4 @@
-import { TbArrowDown } from "react-icons/tb";
+import { TbArrowDown, TbMail, TbPhone } from "react-icons/tb";
 import MyImage from "./../assets/khushbu-tamershwari.png";
 import Amex from "./../assets/amex.svg";
 import Mercedes from "./../assets/mercedes-benz.png";
@@ -6,21 +6,51 @@ import Tesco from "./../assets/tesco.png";
 import Wipro from "./../assets/wipro.png";
 
 const technicalSkills = [
-  "JavaScript (ES6+), TypeScript",
-  "React.js, Next.js, Angular",
-  "Node.js, Express.js, NestJS",
-  "HTML5, CSS3, SCSS, Tailwind CSS, Bootstrap",
-  "RESTful APIs, GraphQL",
-  "Database Management (PostgreSQL, MySQL, MongoDB, Oracle)",
-  "Cloud Platforms (AWS, GCP, Azure)",
-  "CI/CD (GitHub Actions, Jenkins, Docker, Kubernetes)",
-  "Microservices Architecture & Serverless Computing",
-  "Authentication & Security (OAuth, JWT, SSO, OWASP Security Best Practices)",
-  "Testing Frameworks (Jest, Mocha, Cypress, Selenium)",
-  "DevOps & Infrastructure as Code (Terraform, Ansible, Docker, Kubernetes)",
-  "Version Control (Git, GitHub, GitLab, Bitbucket)",
-  "Agile & Scrum Methodologies",
-  "Offline-first & Progressive Web Apps (PWA, IndexedDB, Service Workers)",
+  {
+    category: "Programming Languages",
+    skills: ["JavaScript (ES6+)", "TypeScript", "Python"],
+  },
+  {
+    category: "Frontend Development",
+    skills: ["React.js", "Next.js", "Redux", "HTML5", "CSS3", "Tailwind CSS"],
+  },
+  {
+    category: "Backend Development",
+    skills: [
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "Spring Boot",
+      "Django",
+      "Flask",
+      "Ruby on Rails",
+    ],
+  },
+  {
+    category: "Databases",
+    skills: ["PostgreSQL", "MySQL", "MongoDB"],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: ["AWS", "GCP", "Azure", "Docker", "Kubernetes"],
+  },
+  {
+    category: "CI/CD & Version Control",
+    skills: ["Git", "GitHub Actions", "CircleCI"],
+  },
+  {
+    category: "Security & Authentication",
+    skills: ["OAuth", "JWT", "SSO"],
+  },
+  {
+    category: "Testing & Quality Assurance",
+    skills: ["Jest", "Mocha", "Cypress"],
+  },
+
+  {
+    category: "Offline-first & PWA",
+    skills: ["Progressive Web Apps (PWA)", "Service Workers"],
+  },
 ];
 
 const Company = ({
@@ -91,6 +121,41 @@ const App = () => {
           <TbArrowDown className="text-3xl animate-bounce text-slate-400" />
         </div>
       </div>
+
+      {/* Contact Information */}
+      <div className="container mx-auto  flex flex-col px-4 my-20">
+        <h2 className="text-2xl font-semibold my-4">Contact Information</h2>
+        <div>
+          <div className="flex items-center w-">
+            <TbPhone className="text-2xl text-slate-400 w-16" />
+            <a
+              href="tel:+918904303577"
+              className="text-lg underline print:no-underline"
+            >
+              +91 890430-3577
+            </a>
+          </div>
+          <div className="flex items-center w-">
+            <TbMail className="text-2xl text-slate-400 w-16" />
+            <a
+              href="tel:+918904303577"
+              className="text-lg underline print:no-underline"
+            >
+              +91 890430-3577
+            </a>
+          </div>
+          <div className="flex items-center w-">
+            <TbPhone className="text-2xl text-slate-400 w-16" />
+            <a
+              href="tel:+918904303577"
+              className="text-lg underline print:no-underline"
+            >
+              +91 890430-3577
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto min-h-screen flex flex-col px-6">
         <h2 className="text-2xl font-semibold">Experience</h2>
         <div className="flex flex-col gap-16 mb-40">
@@ -156,16 +221,25 @@ const App = () => {
         </div>
       </div>
 
-      {/* sKILLS */}
+      {/* SKILLS */}
       <div className="container mx-auto flex flex-col px-4 my-10">
         <h2 className="text-2xl font-semibold my-4">Technical Skills</h2>
-        <div>
-          <h3 className="text-lg font-semibold">Bachelor of Engineering</h3>
-          <h4 className="font-semibold">Computer Science and Engineering</h4>
-          <h4 className="mt-2">
-            {`Lakshmi Narayan College Of Technolgy, Bhopal (RGPV) | 2011 - 2015`}
-          </h4>
-          <h5 className="text-sm"></h5>
+        <div className="flex gap-4 flex-col">
+          {technicalSkills.map((sec, idx) => (
+            <div key={idx}>
+              <p className="font-semibold mb-1">{sec.category}</p>
+              <div className="flex gap-1 flex-wrap">
+                {sec.skills.map((skill) => (
+                  <p
+                    className="text-sm border border-blue-400 p-1 rounded-md"
+                    key={skill}
+                  >
+                    {skill}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
