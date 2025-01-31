@@ -255,6 +255,11 @@ const App = () => {
           ))}
         </div>
       </div>
+      <div className="mt-20 pb-20">
+        <p className="text-center text-slate-400">
+          made with ❤️ and ☕ by Khushbu Tameshwari
+        </p>
+      </div>
     </div>
   );
 };
